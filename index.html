@@ -2,11 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Complexity Comparison</title>
+    <title>Employee Search Results</title>
 </head>
 <body>
-    <h1>Time Complexity Comparison</h1>
-    <img src="/static/plot.png" alt="Time Complexity Plot">
+    <h1>Employee Search Results</h1>
+    <form method="POST">
+        <label for="num_employees">Number of Employees to Generate:</label>
+        <input type="number" id="num_employees" name="num_employees" value="50000" min="100" max="50000">
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if result %}
+        {% if result.error %}
+            <p style="color:red;">Error: {{ result.error }}</p>
+        {% else %}
+            <h2>Highest Salary Employee</h2>
+            <p>Designation: {{ result.highest_salary_employee.Designation }}, Salary: {{ result.highest_salary_employee.Salary }}</p>
+
+            <h2>Lowest Salary Employee</h2>
+            <p>Name: {{ result.lowest_salary_employee.Name }}, Salary: {{ result.lowest_salary_employee.Salary }}</p>
+
+            <h2>Youngest Employee</h2>
+            <p>Mobile: {{ result.youngest_employee.Mobile }}, Age: {{ result.youngest_employee.Age }}</p>
+
+            <h2>Oldest Employee</h2>
+            <p>Salary: {{ result.oldest_employee.Salary }}, Age: {{ result.oldest_employee.Age }}</p>
+
+            <img src="{{ url_for('static', filename='search_time_complexity.png') }}" alt='Time Complexity Graph'>
+        {% endif %}
+    {% endif %}
 </body>
 </html>
+ 
