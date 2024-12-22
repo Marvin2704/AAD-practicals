@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chef Comparison</h1>
+    <form action="/" method="post">
+        <h2>Enter scores for Chef 1 and Chef 2 </h2>
+        <div>
+            <h3>Chef 1 Scores:</h3>
+            <input type="number" name="chef1_1" required>
+            <input type="number" name="chef1_2" required>
+            <input type="number" name="chef1_3" required>
+        </div>
+        <div>
+            <h3>Chef 2 Scores:</h3>
+            <input type="number" name="chef2_1" required>
+            <input type="number" name="chef2_2" required>
+            <input type="number" name="chef2_3" required>
+        </div>
+        <br>
+        <input type="submit" value="Submit">
+ `   </form>
+
+    {% if chef1_points is not none and chef2_points is not none %}
+    <div class="result">
+        <h2>Results</h2>
+        <p>Chef 1 Points: {{ chef1_points }}</p>
+        <p>Chef 2 Points: {{ chef2_points }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Closest Pair to Zero</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin-top: 50px;
+            }
+            .form-container {
+                margin-top: 20px;
+            }
+            .result {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Find Closest Pair to Zero</h1>
+        <form action="/" method="post">
+            <label for="numbers">Enter numbers separated by commas:</label><br>
+            <input type="text" id="numbers" name="numbers" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if closest_pairs %}
+        <div class="result">
+            <h2>Results</h2>
+            <p>Closest Pairs to Zero Sum:</p>
+            <p>
+                {% if closest_pairs[0][0] == 'Error' %}
+                    {{ closest_pairs[0][1] }}
+                {% else %}
+                    {% for p1, p2 in closest_pairs %}
+                        {{ p1 }}, {{ p2 }}{% if not loop.last %} & {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </p>
+        </div>
+        {% endif %}
+    </body>
+    </html>
+    
+    
